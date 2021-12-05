@@ -63,7 +63,7 @@ OFF
 Get the files.  
 
 ```console
-root@OpenWRT:~# opkg install git-http 
+root@OpenWRT:~# opkg install mosquitto-client-nossl git-http 
 root@OpenWRT:~# cd /tmp
 root@OpenWRT:~# git clone https://github.com/austinmroczek/mqtt-control-openwrt.git 
 root@OpenWRT:~# cd mqtt-control-openwrt
