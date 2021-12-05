@@ -16,7 +16,7 @@ do
     continue
   fi
   echo "blocking $proto for $device - $mac"
-  iptables -A "$chain" -m comment --comment "blocking $proto for $device" -p "$proto" -m mac --mac-source "$mac" -j REJECT
+  iptables -A "$chain" -w 5 -m comment --comment "blocking $proto for $device" -p "$proto" -m mac --mac-source "$mac" -j REJECT
 done
 echo "---------------------------------------------"
 
@@ -30,7 +30,7 @@ do
     continue
   fi
   echo "blocking $proto for $device - $mac"
-  ip6tables -A "$chain" -m comment --comment "blocking $proto for $device" -p "$proto" -m mac --mac-source "$mac" -j REJECT
+  ip6tables -A "$chain" -w 5 -m comment --comment "blocking $proto for $device" -p "$proto" -m mac --mac-source "$mac" -j REJECT
 done
 echo "---------------------------------------------"
 

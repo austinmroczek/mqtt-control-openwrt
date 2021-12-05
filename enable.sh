@@ -10,7 +10,7 @@ echo "enable $device $mac"
 
 for proto in "tcp" "udp"
 do
-  iptables -D "$chain" -m comment --comment "blocking $proto for $device" -p "$proto" -m mac --mac-source "$mac" -j REJECT
+  iptables -D "$chain" -w 5 -m comment --comment "blocking $proto for $device" -p "$proto" -m mac --mac-source "$mac" -j REJECT
 done
 echo "---------------------------------------------"
 
@@ -18,7 +18,7 @@ echo "---------------------------------------------"
 
 for proto in "tcp" "udp"
 do
-  ip6tables -D "$chain" -m comment --comment "blocking $proto for $device" -p "$proto" -m mac --mac-source "$mac" -j REJECT
+  ip6tables -D "$chain" -w 5 -m comment --comment "blocking $proto for $device" -p "$proto" -m mac --mac-source "$mac" -j REJECT
 done
 echo "---------------------------------------------"
 
