@@ -17,7 +17,7 @@ start() {
         /usr/bin/mosquitto_pub -r -h $host -t ha/internet/youtube/available -m online
 
 	echo "...start the MQTT subscriptions to watch for updates"
-        /etc/iot/mosquitto_sub_ipad.sh $host &
+        /etc/iot/mosquitto_sub_ipad.sh $host ipad 4C:AB:4F:31:52:0C &
         /etc/iot/mosquitto_sub_kid_computer.sh $host &
         /etc/iot/mosquitto_sub_roku.sh $host &
 	/etc/iot/mosquitto_sub_youtube.sh $host &
