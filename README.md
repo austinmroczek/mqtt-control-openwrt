@@ -79,7 +79,7 @@ root@OpenWRT:~# cp *.sh /etc/iot
 root@OpenWRT:~# chmod 755 /etc/iot/*.sh
 root@OpenWRT:~# cp ha /etc/init.d/ha
 root@OpenWRT:~# chmod 755 /etc/init.d/ha
-root@OpenWRT:~# ln -s /etc/init.d/ha /etc/rc.d/S90ha
+root@OpenWRT:~# ln -s /etc/init.d/ha /etc/rc.d/S82ha
 ```
 
 Start up the service
