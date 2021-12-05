@@ -17,9 +17,9 @@ start() {
         /usr/bin/mosquitto_pub -r -h $host -t ha/internet/youtube/available -m online
 
 	echo "...start the MQTT subscriptions to watch for updates"
-        /etc/iot/mosquitto_sub_ipad.sh $host ipad 4C:AB:4F:31:52:0C &
-        /etc/iot/mosquitto_sub_kid_computer.sh $host &
-        /etc/iot/mosquitto_sub_roku.sh $host &
+        /etc/iot/mosquitto_sub.sh $host ipad 4C:AB:4F:31:52:0C &
+        /etc/iot/mosquitto_sub.sh $host kid_computer CC:3D:82:B1:1A:70 &
+        /etc/iot/mosquitto_sub.sh $host roku B8:3E:59:22:A3:61 &
 	/etc/iot/mosquitto_sub_youtube.sh $host &
 
         echo "Start HA MQTT controller service -- COMPLETE"
