@@ -19,7 +19,7 @@ start() {
         /etc/iot/mosquitto_sub_ipad.sh $host &
         /etc/iot/mosquitto_sub_kid_computer.sh $host &
         /etc/iot/mosquitto_sub_roku.sh $host &
-	/etc/iot/youtube.sh $host &
+	/etc/iot/mosquitto_sub_youtube.sh $host &
 }
 
 stop() {
@@ -41,7 +41,7 @@ stop() {
 	done
 
 	# stop the youtube task
-        PIDS=$(ps | grep youtube | grep -v grep | awk '{print $1}')
+        PIDS=$(ps | grep tcpdump | grep -v grep | awk '{print $1}')
         export PIDS
         for i in ${PIDS}
         do

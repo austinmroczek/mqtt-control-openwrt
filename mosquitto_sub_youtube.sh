@@ -3,6 +3,7 @@
 ### set up a pipe from tcpdump this script can read
 
 p="youtube"
+host="$1"
 ([ ! -p "$p" ]) && mkfifo $p
 
 ### set up background tcpdump task
@@ -13,7 +14,7 @@ PID=$!
 trap 'kill $PID' HUP INT TERM QUIT KILL
 
 # start with sensor in OFF state
-/etc/iot/youtube_sensor_off.sh
+/etc/iot/youtube_sensor_off.sh $host
 
 ### read from the pipe when tcpdump provides output
 
@@ -31,12 +32,12 @@ do
     if [ ! -f sensor.lock ]; then
       #echo create lock file
       touch sensor.lock
-      /etc/iot/youtube_sensor_on.sh &
+      /etc/iot/youtube_sensor_on.sh $host &
     fi
 
   else
     #echo youtube not detected, ensure sensor is OFF
-    /etc/iot/youtube_sensor_off.sh &
+    /etc/iot/youtube_sensor_off.sh $host &
   fi
 
 done
