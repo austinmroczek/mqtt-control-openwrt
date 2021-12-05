@@ -4,6 +4,7 @@ device="$2"
 mac="$3"
 p="mqttPipe_$device"
 
+logger -p ha.info -t "HA starting mosquitto sub for $device"
 
 ([ ! -p "$p" ]) && mkfifo $p
 (mosquitto_sub -h $host -q 1 -t ha/internet/$device >$p 2>/dev/null) &
@@ -21,4 +22,4 @@ do
          /etc/iot/enable.sh $device $mac
       fi
 done
-
+logger -p ha.error -t "HA mosquitto sub for $device stopped unexpectedly"
