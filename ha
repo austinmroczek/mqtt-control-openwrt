@@ -8,7 +8,7 @@ START=82
 host=rpi4
 
 start() {
-        sleep 10
+        sleep 30
         echo "Start HA MQTT controller service"
 
 	echo "...show the MQTT switches as as available in Home Assistant"
