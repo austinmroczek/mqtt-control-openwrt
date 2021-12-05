@@ -1,7 +1,8 @@
 #!/bin/sh
 p="mqttPipeRoku"
 ([ ! -p "$p" ]) && mkfifo $p
-(mosquitto_sub -q 1 -d -t ha/internet/roku >$p 2>/dev/null) &
+host="$1"
+(mosquitto_sub -h $host -q 1 -d -t ha/internet/roku >$p 2>/dev/null) &
 PID=$!
 
 trap 'kill $PID' HUP INT TERM QUIT KILL

@@ -16,10 +16,10 @@ start() {
 	/usr/bin/mosquitto_pub -r -h $host -t ha/internet/roku/available -m online
         /usr/bin/mosquitto_pub -r -h $host -t ha/internet/youtube/available -m online
 
-        /etc/iot/mosquitto_sub_ipad.sh &
-        /etc/iot/mosquitto_sub_kid_computer.sh &
-        /etc/iot/mosquitto_sub_roku.sh &
-	/etc/iot/youtube.sh &
+        /etc/iot/mosquitto_sub_ipad.sh $host &
+        /etc/iot/mosquitto_sub_kid_computer.sh $host &
+        /etc/iot/mosquitto_sub_roku.sh $host &
+	/etc/iot/youtube.sh $host &
 }
 
 stop() {
