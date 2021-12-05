@@ -1,7 +1,7 @@
 #!/bin/sh
 
 device="iPad"
-mac="80:E6:50:35:6B:C5"
+mac="4C:AB:4F:31:52:0C"
 chain="forwarding_rule"
 
 # ipv4
