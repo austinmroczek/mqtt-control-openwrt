@@ -4,6 +4,8 @@ device="MelanieDesktop"
 mac="CC:3D:82:B1:1A:70"
 chain="forwarding_rule"
 
+echo "enable $device $mac"
+
 # ipv4
 
 for proto in "tcp" "udp"

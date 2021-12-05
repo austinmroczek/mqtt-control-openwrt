@@ -4,6 +4,8 @@ device="iPad"
 mac="4C:AB:4F:31:52:0C"
 chain="forwarding_rule"
 
+echo "disable $device $mac"
+
 # ipv4
 
 for proto in "tcp" "udp"

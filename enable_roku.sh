@@ -4,6 +4,8 @@ device="Guest Roku WiFi"
 mac="B8:3E:59:22:A3:61"
 chain="forwarding_rule"
 
+echo "enable $device $mac"
+
 # ipv4
 
 for proto in "tcp" "udp"
