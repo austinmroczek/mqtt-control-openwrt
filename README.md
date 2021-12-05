@@ -75,8 +75,10 @@ Copy the files to a long term destination.
 
 ```console
 root@OpenWRT:~# mkdir /etc/iot
-root@OpenWRT:~# cp * /etc/iot
+root@OpenWRT:~# cp *.sh /etc/iot
+root@OpenWRT:~# chmod 755 /etc/iot/*.sh
 root@OpenWRT:~# cp ha /etc/init.d/ha
+root@OpenWRT:~# chmod 755 /etc/init.d/ha
 root@OpenWRT:~# ln -s /etc/init.d/ha /etc/rc.d/S90ha
 ```
 
