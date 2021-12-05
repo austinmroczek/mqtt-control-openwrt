@@ -2,7 +2,7 @@
 p="mqttPipeiPad"
 host="$1"
 ([ ! -p "$p" ]) && mkfifo $p
-(mosquitto_sub -h $host -q 1 -d -t ha/internet/ipad >$p 2>/dev/null) &
+(mosquitto_sub -h $host -q 1 -t ha/internet/ipad >$p 2>/dev/null) &
 PID=$!
 
 trap 'kill $PID' HUP INT TERM QUIT KILL
